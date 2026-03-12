@@ -26,9 +26,9 @@ def sign_message(challenge, filename="secret_key.txt"):
     # Use the code from the signatures assignment to sign the given challenge
 
     account = eth_account.Account.from_key(private_key)
-    eth_add = account.address
+    eth_addr = account.address
 
-    signed_message = eth.account.Account.sign_message(message, private_key)
+    signed_message = eth_account.Account.sign_message(message, private_key)
 
 
 
