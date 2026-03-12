@@ -16,12 +16,19 @@ def sign_message(challenge, filename="secret_key.txt"):
         key = f.readlines()
     assert(len(key) > 0), "Your account secret_key.txt is empty"
 
+    private_key = key[0].strip()
+
+    
     w3 = Web3()
     message = encode_defunct(challenge)
 
     # TODO recover your account information for your private key and sign the given challenge
     # Use the code from the signatures assignment to sign the given challenge
-    
+
+    account = eth_account.Account.from_key(private_key)
+    eth_add = account.address
+
+    signed_message = eth.account.Account.sign_message(message, private_key)
 
 
 
