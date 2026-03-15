@@ -14,7 +14,7 @@ def sign_message(challenge, filename="secret_key.txt"):
     # If the file is empty, it will raise an exception
     with open(filename, "r") as f:
         key = f.readlines()
-        key = key[0]
+        key = key[0].strip()
     assert(len(key) > 0), "Your account secret_key.txt is empty"
 
     #private_key = key[0].strip()
